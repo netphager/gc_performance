@@ -38,10 +38,22 @@ var m = 'test';
 m = null;
 m === 'test'; // false
 
+/*clear array*/
+var arr = [1,2,3,4,5];
+arr = []; /* creates an new array object and assign empty value*/
+arr.length = 0; /*reuses the same array object and assign empty value*/
+
 /*=====================================================================================================================*/
 function getResult() {
 	return { result: true, value: 'test' }; // creates object every call
 }
 
-/*And finally, the potentially very painful Array.slice:*/
+/* very painful Array.slice:*/
 var b = a.slice(1); // creates an entirely new duplicate array
+
+/*=====================================================================================================================*/
+/*Sometimes our program needed to call a specific function more time or on certain intervals by using setInterval or setTimeout.*/
+setTimeout(function() { doSomething() }, 10);
+/*You can optimize the above code by assigning the function to a permanent variable rather than spawning each time at regular intervals.*/
+var myfunc = function() { doSomething() }
+setTimeout(myfunc, 10);
